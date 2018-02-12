@@ -11,10 +11,31 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.svg$/,
+        use: [
+          "babel-loader",
+          {
+            loader: "react-svg-loader",
+            options: {
+              svgo: {
+                plugins: [
+                  { removeTitle: false }
+                ],
+                floatPrecision: 2
+              }
+            }
+          }
+        ]
+      },
+      {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader'
-      }
+      },
+      {
+        test: /\.css$/,
+        use:['style-loader','css-loader']
+      },
     ]
   },
   // When we're in development, we can use this handy live-reload plugin
