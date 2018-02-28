@@ -4,7 +4,7 @@ import Help from './help'
 
 const Nav = () => {
     return (
-        <Navbar brand="Arkadium: Headshot Creator" right>
+        <Navbar brand="Headshot Maker" right>
             <NavItem> <Help /> </NavItem>
         </Navbar>
     )
