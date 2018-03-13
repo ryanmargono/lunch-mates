@@ -5,7 +5,6 @@ const bodyParser = require('body-parser')
 const compression = require('compression')
 const PORT = 8080
 const app = express()
-module.exports = app
 
 const createApp = () => {
   // logging middleware
@@ -31,6 +30,7 @@ const createApp = () => {
     }
   })
 
+  app.use('/api/users', require('./api/users'))
   // sends index.html
   app.use('*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public/index.html'))
@@ -51,3 +51,6 @@ const startListening = () => {
 
 createApp()
 startListening()
+
+
+module.exports = app
